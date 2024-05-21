@@ -9,7 +9,7 @@ GitHub Action to publish plugins, actions and stacks
 ### Requirements
 
 To learn more about generating account keys(`CLIENT_ID`, `CLIENT_KEY`, `REALM`), please refer to the documentation:
-https://docs.stackspot.com/en/home/set-up/customization/access-token
+https://docs.stackspot.com/home/account/enterprise/service-credential
 
 ### Use Case
 
