@@ -1,5 +1,8 @@
 name: 'StackSpot Publish Content'
 description: 'GitHub Action to ublish plugins, actions and stacks to StackSpot'
+branding:
+  icon: 'arrow-up-circle'
+  color: 'orange'
 
 inputs:
   client_id:
