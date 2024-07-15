@@ -94,7 +94,7 @@ runs:
 
     - name: Show Http debug Log
       shell: bash    
-      if: ${{ failure() && inputs.debug == true }}
+      if: ${{ failure() }}
       run: |
         cat $HOME/.stk/debug/http.txt
         exit 1
