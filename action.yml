@@ -86,3 +86,10 @@ runs:
       run: |
         cat $HOME/.stk/logs/*
         exit 1
+
+    - name: Show Http debug Log
+      shell: bash    
+      if: ${{ failure() }}
+      run: |
+        cat $HOME/.stk/debug/http.txt
+        exit 1
