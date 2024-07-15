@@ -20,7 +20,11 @@ inputs:
   content_path:
     description: Content Path
     required: false
-    default: '.'    
+    default: '.'
+  debug:
+    description: Debug
+    required: false
+    default: false
 
 runs:
   using: "composite"
@@ -68,6 +72,7 @@ runs:
       env:
         STUDIO: ${{ inputs.studio }}
         CONTENT_PATH: ${{ inputs.content_path }}
+        HTTP_ENABLE_FILE_DEBUG: ${{ inputs.debug }}
       run: |
         cd $CONTENT_PATH
         if [ -f "plugin.yaml" ] || [ -f "plugin.yml" ]; then
@@ -89,7 +94,7 @@ runs:
 
     - name: Show Http debug Log
       shell: bash    
-      if: ${{ failure() }}
+      if: ${{ failure() && inputs.debug == true }}
       run: |
         cat $HOME/.stk/debug/http.txt
         exit 1
