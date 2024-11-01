@@ -81,8 +81,10 @@ runs:
             $HOME/.stk/bin/stk publish action --studio $STUDIO
         elif [ -f "stack.yaml" ] || [ -f "stack.yml" ]; then
             $HOME/.stk/bin/stk publish stack --studio $STUDIO
+        elif [ -f "workflow.yaml" ] || [ -f "workflow.yml" ]; then
+            $HOME/.stk/bin/stk publish workflow --studio $STUDIO            
         else
-          echo "No plugin.yaml, action.yaml or stack.yaml found"
+          echo "No plugin.yaml, action.yaml, stack.yaml or workflow.yaml found"
         fi
 
     - name: Show Error Log
