@@ -28,30 +28,12 @@ inputs:
 
 runs:
   using: "composite"
-  steps:
-    - name: Download STK CLI
-      shell: bash
-      run: |
-        curl \
-          --fail \
-          --http2-prior-knowledge \
-          --location \
-          --output /tmp/stk.deb \
-          --silent \
-          --show-error \
-          --tlsv1.3 \
-          https://stk.stackspot.com/installer/linux/stk.deb
-        
+  steps:       
     - name: Install STK CLI
       shell: bash
       run: |
-        sudo dpkg --install /tmp/stk.deb || echo "Installation failed with exit code: $?"
+        (curl -fsSL https://stk.stackspot.com/install.sh | bash) || echo "Installation failed with exit code: $?" 
         export PATH=$PATH:$HOME/.stk/bin
-
-    - name: Verify if cli was installed
-      shell: bash
-      run: |
-        dpkg -l | grep stk
 
     - name: Show STK CLI version
       shell: bash
